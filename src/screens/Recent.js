@@ -8,24 +8,34 @@ const Recent = () => {
     const [isPending, setIspending] = useState(false);
     const [error, setError] = useState(false);
     const [recentData, setRecentData] = useState(null);
-    useEffect(() => {
-        setIspending(true);
-        fetch('http://localhost:5000/recent')
-          .then(res => {
-            console.log(data);
-            console.log(recentData);
-            return res.json();
-          })
-          .then(data => {
-            console.log(data)
-            setRecents(data);
-            setIspending(false);
-          })
-      }, []);
 
-      setTimeout(() => {
-        setRecentData(data.recent);
-      }, 1000);
+    //USEEFECT FOR DATA
+    // useEffect(() => {
+    //     setIspending(true);
+    //     fetch('http://localhost:5000/recent')
+    //       .then(res => {
+    //         console.log(data);
+    //         console.log(recentData);
+    //         return res.json();
+    //       })
+    //       .then(data => {
+    //         console.log(data)
+    //         setRecents(data);
+    //         setIspending(false);
+    //       })
+    //   }, []);
+      
+      useEffect(() => {
+        setIspending(true);
+      
+        
+            setTimeout(() => {
+                setRecentData(data.recent);
+                setIspending(false);
+            }, 1000);
+        
+      }, [])
+      
     return (
         <div className="recent page">
             {
