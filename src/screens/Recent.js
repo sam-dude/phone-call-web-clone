@@ -7,7 +7,7 @@ const Recent = () => {
     const [recents, setRecents] = useState(null);
     const [isPending, setIspending] = useState(false);
     const [error, setError] = useState(false);
-    const [recentData, setRecentData] = useState(data.recent);
+    const [recentData, setRecentData] = useState(null);
     useEffect(() => {
         setIspending(true);
         fetch('http://localhost:5000/recent')
@@ -22,10 +22,14 @@ const Recent = () => {
             setIspending(false);
           })
       }, []);
+
+      setTimeout(() => {
+        setRecentData(data.recent);
+      }, 1000);
     return (
         <div className="recent page">
             {
-                isPending ? <LoadingScreen />: recents && recents
+                isPending ? <LoadingScreen />: recentData && recentData
                 .sort((a, b) => (a.time > b.time ? 1 : -1))
                 .map(recen => (
                     <div key={recen.id}>
