@@ -12,7 +12,7 @@ const Contacts = () => {
             </div>
             </Link>
             {
-                contacts.map( data => (
+                contacts.map(data => (
                     <div key={data.id}>
                         {data.name}
                     </div>

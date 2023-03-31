@@ -32,7 +32,7 @@ const Recent = () => {
             setTimeout(() => {
                 setRecentData(data.recent);
                 setIspending(false);
-            }, 1000);
+            }, 500);
         
       }, [])
       
